@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title th:text="#{kaz_gidromet_ot4et}">Система по управлению приложением</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" th:href="@{../../resources/css/bootstrap.min.css}"/>
+
+    <!-- MetisMenu CSS -->
+    <link href="../../resources/css/plugins/metisMenu/metisMenu.min.css" th:href="@{../../resources/css/plugins/metisMenu/metisMenu.min.css}" rel="stylesheet"/>
+
+    <!-- Timeline CSS -->
+
+
+    <!-- Custom CSS -->
+    <link href="../../resources/css/sb-admin-2.css" th:href="@{../../resources/css/sb-admin-2.css}" rel="stylesheet"/>
+
+    <!-- Morris Charts CSS -->
+    <link href="../../resources/css/plugins/morris.css" th:href="@{../../resources/css/plugins/morris.css}" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="../../resources/font-awesome-4.1.0/css/font-awesome.min.css" th:href="@{../../resources/font-awesome-4.1.0/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+   <!-- [if lt IE 9]
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" th:src="@{//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" th:src="@{//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    [endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" th:text="#{kaz_gidromet_ot4et}">Система по управлению приложением</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                
+                <!-- /.dropdown -->
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+
+                        <li><a href="/j_spring_security_logout" th:href="@{/j_spring_security_logout}" th:text="#{exit}"><i class="fa fa-sign-out fa-fw"></i> Выход</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+
+
+           <!-- <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Поиск..." th:placeholder="#{poisk}"/>
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            &lt;!&ndash; /input-group &ndash;&gt;
+                        </li>
+
+                                <li>
+                            <a class="active" href="index.html" th:text="#{glavnaya}"><i class="fa fa-dashboard fa-fw" ></i> Главная</a>
+                        </li>
+
+
+
+                            <li data-toggle="collapse" data-target="#spr">
+                            <a href="#" th:text="#{spravo4niki}"><i class="fa fa-table fa-fw"></i> Справочники<span class="fa arrow"></span></a>
+                            
+                             <ul class="nav nav-second-level collapse" id="spr">
+                                <li>
+                                    <a href="filials.html" th:href="@{filials.html}" th:text="#{filialy}">Филиалы</a>
+                                </li>
+                                <li>
+                                    <a href="kontra.html" th:href="@{kontra.html}" th:text="#{kontragenty}">Контрагенты</a>
+                                    
+                                </li>
+                                
+                                <li>
+                                    <a href="dogovora.html" th:href="@{dogovora.html}" th:text="#{dogovora}">Договора</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="uslugi.html" th:href="@{uslugi.html}" th:text="#{uslugi}">Услуги</a>
+                                </li>
+                                
+                                
+                            </ul>
+                            
+                            
+                            
+                        </li>
+                          
+                          
+                            
+                           <li data-toggle="collapse" data-target="#doc">
+                            <a href="#" th:text="#{dokumenty}"><i class="fa fa-edit fa-fw"></i> Документы <span class="fa arrow"></span></a>
+                       
+                         
+                          
+                             <ul class="nav nav-second-level collapse" id="doc">
+                                <li>
+                                    <a href="doc.html" th:href="@{doc.html}" th:text="#{okazania_uslug}">Оказание услуг</a>
+                                </li>
+                                <li>
+                                    <a href="plan.html" th:href="@{plan.html}" th:text="#{sostavlenie_plana}">Составление плана</a>
+                                    
+                                </li>
+                                
+                              
+                                
+                                
+                            </ul>
+                            
+                             
+                              
+                               
+                                 </li>
+                          
+                          
+                           
+                           <li>
+                            <a href="report.html" th:href="@{report.html}" th:text="#{ot4ety}"><i class="fa fa-bar-chart-o fa-fw"></i> Отчеты</a>
+                         
+                        </li>
+
+
+
+                        <li>
+                            <a href="user.html" th:href="@{user.html}" th:text="#{polzovateli}"><i class="fa fa-bar-chart-o fa-fw"></i> Пользователи</a>
+
+                        </li>
+
+                                                 </ul>
+                                             </div>
+
+
+
+            </div>
+
+-->
+
+
+
+
+
+
+
+
+
+        </nav>
+
+
+
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header" th:text="#{glavnaya}">Главная</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        
+                    
+                                    
+
+           
+           
+                       
+               
+                
+                 
+                  
+                 
+                     
+                     
+                     
+                     
+            <div class="row">
+                <div class="col-lg-8">
+
+
+
+
+                    <form method="POST" enctype="multipart/form-data"
+                          action="/upload">
+                        <input type="file" name="file" id="file" th:name="file" th:id="file" multiple="true"/><br /> <br />
+
+
+
+
+
+                                <textarea class="form-control" id="rus" name="rus">Статья на русском</textarea><br/><br/>
+
+
+
+                                <textarea class="form-control" id="kz" name="kz">Статья на казахском</textarea><br/><br/>
+
+
+
+                                <textarea class="form-control" id="en" name="en">Статья на английском</textarea><br/> <br/>
+
+
+
+
+<button class="btn btn-success" type="submit">Сохранить</button>
+
+
+
+
+
+
+                    </form>
+
+
+
+
+
+
+
+
+
+
+
+                  <!--  <div class="panel panel-default">
+                        <div class="panel-heading" >
+                            <label th:for="an" th:text="#{analitika_dogovorov}"></label>
+                            <i class="fa fa-bar-chart-o fa-fw" id="an"></i>
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" th:text="#{deistvia}">
+                                        Действия
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">1</a>
+                                        </li>
+                                        <li><a href="#">2</a>
+                                        </li>
+                                        <li><a href="#">3</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">4</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        &lt;!&ndash; /.panel-heading &ndash;&gt;
+                      <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+                        </div> 
+                        &lt;!&ndash; /.panel-body &ndash;&gt;
+                    </div>-->
+                 
+     
+
+ 
+                   
+                    
+                       
+                
+                                              
+                
+
+
+
+
+     
+                                          
+                </div>
+       
+                
+                              
+                
+                   
+                    
+                      
+                          <!-- /.col-lg-4 -->
+            </div>
+           
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../../resources/js/jquery.js" th:src="@{../../resources/js/jquery.js}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../resources/js/bootstrap.min.js" th:src="@{../../resources/js/bootstrap.min.js}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../resources/js/plugins/metisMenu/metisMenu.min.js" th:src="@{../../resources/js/plugins/metisMenu/metisMenu.min.js}"></script>
+
+
+
+
+
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../../resources/js/plugins/morris/raphael.min.js" th:src="@{../../resources/js/plugins/morris/raphael.min.js}"></script>
+    <script src="../../resources/js/plugins/morris/morris.min.js" th:src="@{../../resources/js/plugins/morris/morris.min.js}"></script>
+    <script src="../../resources/js/plugins/morris/morris-data.js" th:src="@{../../resources/js/plugins/morris/morris-data.js}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../resources/js/sb-admin-2.js" th:src="@{../../resources/js/sb-admin-2.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+
+    <import resource="view-context.xml"></import>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <context:component-scan base-package="org.growit.kz.controller"/>
+
+    <context:component-scan base-package="org.growit.kz.service"/>
+
+
+    <context:component-scan base-package="org.growit.kz.dao"/>
+
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Configure bean to convert JSON to POJO and vice versa -->
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven />
+
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+        <property name="maxUploadSize" value="1000000"></property>
+
+
+    </bean>
+
+
+
+
+
+
+
+</beans>

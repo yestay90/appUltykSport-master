@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - autoParts@localhost" uuid="c04e7d12-d520-46f8-bf3c-de5d6e9ec576">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="autoParts"/>
+    <table name="Cars" schema="" catalog="autoParts" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="carName" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="CarID" table="GroupParts" schema="" catalog="autoParts" columns="carID"/>
+      <index name="idCars_UNIQUE" unique="true" columns="id"/>
+    </table>
+    <table name="GroupParts" schema="" catalog="autoParts" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="groupName" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="carID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="CarID" columns="carID" ref-table="Cars" ref-schema="" ref-catalog="autoParts" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="GroupID" table="SubGroups" schema="" catalog="autoParts" columns="groupID"/>
+      <index name="CarID_idx" unique="false" columns="carID"/>
+    </table>
+    <table name="PartDetails" schema="" catalog="autoParts" type="TABLE">
+      <column name="partNumber" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="partID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="partNumber"/>
+      <foreign-key name="PartID" columns="partID" ref-table="Parts" ref-schema="" ref-catalog="autoParts" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="PartID_idx" unique="false" columns="partID"/>
+    </table>
+    <table name="Parts" schema="" catalog="autoParts" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="partName" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="subGroupID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="SubGroupID" columns="subGroupID" ref-table="SubGroups" ref-schema="" ref-catalog="autoParts" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="PartID" table="PartDetails" schema="" catalog="autoParts" columns="partID"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="SubGroupID_idx" unique="false" columns="subGroupID"/>
+    </table>
+    <table name="SubGroups" schema="" catalog="autoParts" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="subGroupName" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="groupID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="GroupID" columns="groupID" ref-table="GroupParts" ref-schema="" ref-catalog="autoParts" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="SubGroupID" table="Parts" schema="" catalog="autoParts" columns="subGroupID"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="GroupID_idx" unique="false" columns="groupID"/>
+    </table>
+    <table name="users" schema="" catalog="autoParts" type="TABLE">
+      <column name="userid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="userpassword" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="userrole" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="userfirstname" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="userlastname" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="userid"/>
+      <index name="userid_UNIQUE" unique="true" columns="userid"/>
+    </table>
+  </data-source>
+</component>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="appUltykSport:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/appUltykSport_war</output-path>
+    <root id="archive" name="appUltykSport_war.war">
+      <element id="artifact" artifact-name="appUltykSport:war exploded" />
+    </root>
+  </artifact>
+</component>
